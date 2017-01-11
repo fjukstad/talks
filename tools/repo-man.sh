@@ -15,7 +15,6 @@ fi
 
 TALKDIR=/tmp/talks
 mkdir $TALKDIR
-cd $TALKDIR 
 
 # Start the go present tool. Should probably also check that the present tool
 # is installed, but whatevs.
