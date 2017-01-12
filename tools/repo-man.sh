@@ -18,7 +18,7 @@ mkdir $TALKDIR
 
 # Start the go present tool. Should probably also check that the present tool
 # is installed, but whatevs.
-present -base $BASEDIR &
+present -base $BASEDIR -http :3999 &
 
 # Continuously download talks from the given repo url 
 while true
