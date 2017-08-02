@@ -1,0 +1,129 @@
+Building systems for interactive data exploration in systems biology 
+
+*Bjørn* *Fjukstad* 
+Ph.D. Student
+Department of Computer Science
+[[mailto:bjorn.fjukstad@uit.no][bjorn.fjukstad@uit.no]]
+[[http://twitter.com/fjukstad][@fjukstad]]
+[[http://fjukstad.github.io][fjukstad.github.io]]
+
+_24._ _January_ _2017_ 
+
+* 
+.image img/mixt-screenshot.png 520 _ 
+
+* Me 
+- Phd student in Computer Science at the University of Tromsø
+- Been working in Michael Hallett's Lab the last 6 months
+- Building systems for interactive exploration and analysis of omics data 
+
+* University of Tromsø? 
+.image img/arctic-circle.png 
+
+* Polar Night
+.image img/tromso.jpg 520 _ 
+.caption _Tromsø_ _Dec_ _25,_ _2016_ _at_ _1pm_ 
+
+* Overview
+- Background, [[http://github.com/fjukstad/kvik][Kvik]]
+- [[http://github.com/fjukstad/mixt][MIxT]]
+- Live demo! 
+- Wrap-up and questions. 
+
+* On the shoulders of giants 
+- Analysis frameworks: [[http://r-project.org][R]], [[http://bioconductor.org][Bioconductor]], [[https://galaxyproject.org/][Galaxy]]
+- Visualization: [[http://cytoscape.org][Cytoscape]], [[http://biojs.net][BioJS]], [[http://d3js.org][D3]]
+- Databases: [[http://software.broadinstitute.org/gsea/msigdb][MSiGDB]], [[http://www.kegg.jp/][KEGG]], [[http://www.genecards.org/][GeneCards]], [[https://www.ncbi.nlm.nih.gov/pubmed/][PubMed]]
+- Parallelized and distributed computation: [[http://hadoop.apache.org/][Hadoop]], [[http://spark.apache.org/][Spark]], [[http://kubernetes.io/][Kubernets]], [[https://azure.microsoft.com/][Azure]] 
+
+There are few systems that bring these together 
+
+* A big issue 
+- Data wrangling and analysis done in R or other languages.
+- Visualization and presentation of final datasets by external tools. 
+- Manual database lookup is tedious and gets out of date.
+There is no link between analysis and final presentation
+
+* Kvik
+Available at: [[http://github.com/fjukstad/kvik][github.com/fjukstad/kvik]]
+
+- Collection of packages in the Go programming language for building data exploration applications.
+- Interfaces with popular online databases such as MSigDB and KEGG.
+- Provides an interface to the R programming language. 
+- Typically used to build web apps, but commandline tools are also possible! 
+
+* Kvik
+Lead sled dog on Fridtjof Nansen's Fram expedition to the North Pole
+.image img/fram.jpg 450 _ 
+.caption _Fram_ _in_ _the_ _ice_, _March_ _1894_
+
+* Interfacing with R 
+- We've built a server that responds to ordinary HTTP
+
+In R: 
+
+    > rnorm(n=10) 
+    [1] -0.28246693  0.39932946 -0.79904884 -0.54889158 -0.21919533 -0.06129851
+    [7]  0.72666376 -1.21701196 -0.63236475  0.19391537
+
+Using the command line: 
+
+    $ curl -d '{"Package":"stats", "Function":"rnorm", "Arguments":"n=10"}'  http://server/rpc/json     
+    
+    [-0.8021,-0.6228,-2.1942,-0.1338,-0.0878,-0.2599,-0.2014,-0.7508,1.3789,2.0929]
+
+* Look up gene summaries (aka Bjørn's little workshop helper) 
+.html summaries.html
+
+* Gene expression data and KEGG pathways
+.image img/kvik-pathways-screenshot.png 520 _ 
+
+* MIxT 
+Online at [[http://mixt-blood-tumor.bci.mcgill.ca][mixt-blood-tumor.bci.mcgill.ca]] and code at [[http://github.com/fjukstad/mixt][github.com/fjukstad/mixt]]
+.image img/mixt-screenshot.png 420 _ 
+
+* MIxT 
+- Interactive web application for exploring WGCNA modules from blood and biopsy
+- Integrate results with known genesets and online databases 
+- Docker containers for reproducibility and portability 
+
+* Live Demo!
+: green biopsy: cell proliferation 
+: node (gene), edge (similarity of expression) 
+: tumor size also associated with module 
+
+* Data and analysis
+
+We built an R package!
+
+    mixt::getModules(tissue="blood") 
+
+With Kvik we can use it to get data and run analyses
+
+    $ curl -d '{"Package":"mixt", "Function":"getModules", "Arguments":"tissue='blood'"}'
+        http://server/rpc/
+        
+    ["black","blue","brown","cyan","darkgreen","darkgrey","darkred","darkturquoise","green",
+    "greenyellow","grey60","lightyellow","magenta","midnightblue","pink","purple","saddlebrown",
+    "salmon","tan","turquoise","violet","white","yellow"]
+ 
+
+* Visualization 
+- Everything in a web browser, no installations etc. 
+- Combination between Javascript libraries and R 
+- Details: [[http://sigmajs.org/][sigma]] for networks, [[http://d3js.org][d3]] for heatmaps, and R for the rest 
+
+* Future Work
+- Sanitizing user-input (malicious R code) 
+- Improve user experience 
+- Write up a paper! 
+
+* Conclusion 
+- We have show a approach for integrating analysis and presentation of results. 
+- Successfully applied it to the MIxT project. 
+- MIxT is online at [[http://mixt-blood-tumor.bci.mcgill.ca][mixt-blood-tumor.bci.mcgill.ca]]. 
+- You'll find the code at [[https://github.com/fjukstad][github.com/fjukstad]].
+
+* Thanks
+- BDPS group at UiT: Lars Ailo Bongo, Eiliv Lund, Karina Standahl Olsen, Einar Holsbø
+- Michael Hallett Lab: Michael Hallett, Vanessa Dumeaux 
