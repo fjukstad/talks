@@ -22,7 +22,7 @@ _23._ _August_ _2017_
 
 * Tromsø
 .image img/skyrace.jpg 520 _ 
-# .caption _Tromsø_ _Dec_ _25,_ _2016_ _at_ _1pm_ 
+.caption Photo: Lars Gimse, [[facebook.com/tromsoskyrace]]
 
 * Overview
 - Background
@@ -66,10 +66,11 @@ From our experience we identified a set of central features
 - Package components using software containers
 # simplify deployment, dependency hell, sharing 
 
+.image img/mixt-screenshot.png 320 _ 
 
 
 * MIxT 
-- Interactive web application for exploring and comparing transcriptional pro les from blood and tumor samples. 
+- Interactive web application for exploring and comparing transcriptional profiles from blood and tumor samples. 
 - Integrate results with known genesets and online databases.
 - Both a web application and an R package! 
 - Online at [[http://mixt-blood-tumor.bci.mcgill.ca][mixt-blood-tumor.bci.mcgill.ca]] and code at [[http://github.com/fjukstad/mixt][github.com/fjukstad/mixt]]
@@ -117,9 +118,9 @@ With Kvik we can use it to get data and run analyses
 - Provide low latency, decrease load on external databases, store additional metadata
 - E-utilities, MSigDB, HGNC, and KEGG.
 
-* MIxT Analysis Tasks 
-- A1-A5 (available in the paper) 
-- 
+# * MIxT Analysis Tasks 
+# - A1-A5 (available in the paper) 
+# - 
 
 # * Kvik
 # Lead sled dog on Fridtjof Nansen's Fram expedition to the North Pole
@@ -138,17 +139,27 @@ With Kvik we can use it to get data and run analyses
 : node (gene), edge (similarity of expression) 
 : tumor size also associated with module 
 
-* Visualization 
-- Everything in a web browser, no installations etc. 
-- Combination between Javascript libraries and R 
-- Details: [[http://sigmajs.org/][sigma]] for networks, [[http://d3js.org][d3]] for heatmaps, and R for the rest 
+: Analysis tasks: 
+: A1: Explore co-expression genesets in tumor and blood tissue. Along with clinicopathological variables (e.g. patient or tumor grade, stage, age) 
+: A2: Co-expression relationships between genes
+: A3: Relationships between modules from each tissue
+: A4: Relationships between clinical variables and modules 
+: A5: User-submitted gene lists and computed modules
+: A6: Search for genes or gene lists of intrest  
+
+
+# * Visualization 
+# - Everything in a web browser, no installations etc. 
+# - Combination between Javascript libraries and R 
+# - Details: [[http://sigmajs.org/][sigma]] for networks, [[http://d3js.org][d3]] for heatmaps, and R for the rest 
 
 * Discussion
-- Microservice approach: Coputational or storage requirements
+- Suitable for applications with coputational or storage requirements
+- Alternative: Monolithic application built with libraries 
 - Easy sharing, simple deployment, reuse 
 
 * Conclusion 
-- We have show a approach for building data centric applications in systems biology.  
+- We have show a approach for building data centric bioinformatics applications 
 - Successfully applied it to the MIxT project. 
 - MIxT is online at [[http://mixt-blood-tumor.bci.mcgill.ca][mixt-blood-tumor.bci.mcgill.ca]]. 
 - You'll find all the code at [[https://github.com/fjukstad][github.com/fjukstad]].
