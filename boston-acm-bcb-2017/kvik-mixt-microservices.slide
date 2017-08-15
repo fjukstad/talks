@@ -12,6 +12,11 @@ _23._ _August_ _2017_
 * 
 .image img/mixt-screenshot.png 520 _ 
 
+: collect more and more data, interactive tools to explore the large datasets
+: combine statistical analyses, prior knowledge, interactive visualizations, intuitive unterfaces
+: microservice architecture: apps are composed of smaller components communicating with language-agnostic protocols
+: applied it to mixt for exploring transcriptional profiles in blood and tumor 
+
 * Me 
 - Phd student in Computer Science at the University of Tromsø
 - Building systems for interactive exploration and analysis of omics data 
@@ -22,7 +27,7 @@ _23._ _August_ _2017_
 
 * Tromsø
 .image img/skyrace.jpg 520 _ 
-.caption Photo: Lars Gimse, [[facebook.com/tromsoskyrace]]
+.caption Photo: [[facebook.com/tromsoskyrace]]
 
 * Overview
 - Background
@@ -32,11 +37,21 @@ _23._ _August_ _2017_
 - Wrap-up and questions. 
 
 * On the shoulders of giants 
+- Significant increase in rate of data generation creates a need for interactive tools to explore the resultant datasets
+
+
+Tools and databases
+
 - Analysis frameworks: [[http://r-project.org][R]], [[http://bioconductor.org][Bioconductor]], [[https://galaxyproject.org/][Galaxy]], [[https://github.com/biogo/biogo][biogo]], [[http://biopython.org/][Biopython]]
 - Visualization: [[http://cytoscape.org][Cytoscape]], [[http://biojs.net][BioJS]], [[http://d3js.org][D3]]
 - Databases: [[http://software.broadinstitute.org/gsea/msigdb][MSiGDB]], [[http://www.kegg.jp/][KEGG]], [[http://www.genecards.org/][GeneCards]], [[https://www.ncbi.nlm.nih.gov/pubmed/][PubMed]]
 
 There are few systems that bring these together 
+
+: Data wrangling and analysis done in R or other languages.
+: Visualization and presentation of final datasets by external tools. 
+: Manual database lookup is tedious and gets out of date.
+: There is no link between analysis and final presentation
 
 * Microservices
 - Structure an application into small reusable, loosely coupled parts
@@ -45,6 +60,9 @@ There are few systems that bring these together
 - Examples: [[http://biocontainers.pro][BioContainers]]
 
 * Data-centric applications
+
+: data-centric = data exploration application
+: features central to building data-centric applications 
 
 From our experience we identified a set of central features
 
@@ -55,10 +73,6 @@ From our experience we identified a set of central features
 .image img/mixt-screenshot.png 320 _ 
 
 # * A big issue 
-# - Data wrangling and analysis done in R or other languages.
-# - Visualization and presentation of final datasets by external tools. 
-# - Manual database lookup is tedious and gets out of date.
-# There is no link between analysis and final presentation
 
 * Design Principles
 - Build applications as collections of language-agnostic microservices. 
