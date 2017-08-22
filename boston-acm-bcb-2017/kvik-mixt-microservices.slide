@@ -5,8 +5,7 @@ Ph.D. Student
 Department of Computer Science
 [[mailto:bjorn.fjukstad@uit.no][bjorn.fjukstad@uit.no]]
 [[http://twitter.com/fjukstad][@fjukstad]]
-[[http://fjukstad.github.io][fjukstad.github.io]]
-
+[[http://mixt-blood-tumor.bci.mcgill.ca][mixt-blood-tumor.bci.mcgill.ca]], [[http://github.com/fjukstad/mixt][github.com/fjukstad/mixt]]
 _23._ _August_ _2017_ 
 
 * 
@@ -21,9 +20,7 @@ _23._ _August_ _2017_
 - Phd student in Computer Science at the University of Tromsø
 - Building systems for interactive exploration and analysis of omics data 
 - Reproducible containerized genomics pipelines 
-
-* University of Tromsø? 
-.image img/arctic-circle.png 
+.image img/arctic-circle.png 400 _ 
 
 * Tromsø
 .image img/skyrace.jpg 520 _ 
@@ -38,7 +35,6 @@ _23._ _August_ _2017_
 
 * On the shoulders of giants 
 - Significant increase in rate of data generation creates a need for interactive tools to explore the resultant datasets
-
 
 Tools and databases
 
@@ -55,8 +51,8 @@ There are few systems that bring these together
 
 * Microservices
 - Structure an application into small reusable, loosely coupled parts
-- Communicate using language-agnostic protocols: HTTP 
-- Package them in software containers. 
+- Communicate using language-agnostic protocols: HTTP
+- Package them in software containers, [[http://docker.com][Docker]] or [[http://coreos.com/rkt][rkt]]. 
 - Examples: [[http://biocontainers.pro][BioContainers]]
 
 * Data-centric applications
@@ -97,8 +93,7 @@ From our experience we identified a set of central features
 
 * Compute Service
 - Interface with the R programming language 
-- Supports three operations: Call, Get and RPC. Similar to [[http://opencpu.org][OpenCPU]]. 
-- Concurrent by design 
+
 
 In R: 
 
@@ -111,6 +106,10 @@ Using the command line:
     $ curl -d '{"Package":"stats", "Function":"rnorm", "Arguments":"n=10"}'  http://server/rpc/json     
     
     [-0.8021,-0.6228,-2.1942,-0.1338,-0.0878,-0.2599,-0.2014,-0.7508,1.3789,2.0929]
+
+- Supports three operations: Call, Get and RPC. 
+- Concurrent by design 
+- Alternatives: [[http://opencpu.org][OpenCPU]], [[http://shiny.rstudio.com][Shiny]], [[http://renjin.org][Renjin]]
 
 * Data and analysis
 
@@ -132,23 +131,8 @@ With Kvik we can use it to get data and run analyses
 - Provide low latency, decrease load on external databases, store additional metadata
 - E-utilities, MSigDB, HGNC, and KEGG.
 
-# * MIxT Analysis Tasks 
-# - A1-A5 (available in the paper) 
-# - 
-
-# * Kvik
-# Lead sled dog on Fridtjof Nansen's Fram expedition to the North Pole
-# .image img/fram.jpg 450 _ 
-# .caption _Fram_ _in_ _the_ _ice_, _March_ _1894_
-# 
-# 
-# * Look up gene summaries (aka Bjørn's little workshop helper) 
-# .html summaries.html
-# 
-# * Gene expression data and KEGG pathways
-# .image img/kvik-pathways-screenshot.png 520 _ 
-
 * Live Demo!
+
 : green biopsy: cell proliferation 
 : node (gene), edge (similarity of expression) 
 : tumor size also associated with module 
@@ -161,23 +145,23 @@ With Kvik we can use it to get data and run analyses
 : A5: User-submitted gene lists and computed modules
 : A6: Search for genes or gene lists of intrest  
 
-
-# * Visualization 
-# - Everything in a web browser, no installations etc. 
-# - Combination between Javascript libraries and R 
-# - Details: [[http://sigmajs.org/][sigma]] for networks, [[http://d3js.org][d3]] for heatmaps, and R for the rest 
-
-* Discussion
+* Microservices
 - Suitable for applications with coputational or storage requirements
 - Alternative: Monolithic application built with libraries 
 - Easy sharing, simple deployment, reuse 
+
+* Future Work
+- Optimize the underlying R package 
+- Capture data provenance from databases 
+- Security concerns in the compute service 
+- Further investivate the performance
 
 * Conclusion 
 - We have show a approach for building data centric bioinformatics applications 
 - Successfully applied it to the MIxT project. 
 - MIxT is online at [[http://mixt-blood-tumor.bci.mcgill.ca][mixt-blood-tumor.bci.mcgill.ca]]. 
-- You'll find all the code at [[https://github.com/fjukstad][github.com/fjukstad]].
+- You'll find all the code at [[https://github.com/fjukstad/mixt][github.com/fjukstad/mixt]].
 
 * Thanks
 - BDPS group at UiT: Lars Ailo Bongo, Eiliv Lund, Karina Standahl Olsen, Einar Holsbø
-- Michael Hallett Lab: Michael Hallett, Vanessa Dumeaux 
+- Michael Hallett Lab at Concordia: Michael Hallett, Vanessa Dumeaux 
