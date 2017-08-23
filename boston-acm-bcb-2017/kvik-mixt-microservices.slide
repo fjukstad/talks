@@ -8,13 +8,6 @@ Department of Computer Science
 [[http://mixt-blood-tumor.bci.mcgill.ca][mixt-blood-tumor.bci.mcgill.ca]], [[http://github.com/fjukstad/mixt][github.com/fjukstad/mixt]]
 _23._ _August_ _2017_ 
 
-* 
-.image img/mixt-screenshot.png 520 _ 
-
-: collect more and more data, interactive tools to explore the large datasets
-: combine statistical analyses, prior knowledge, interactive visualizations, intuitive unterfaces
-: microservice architecture: apps are composed of smaller components communicating with language-agnostic protocols
-: applied it to mixt for exploring transcriptional profiles in blood and tumor 
 
 * Me 
 - Phd student in Computer Science at the University of Tromsø
@@ -25,6 +18,14 @@ _23._ _August_ _2017_
 * Tromsø
 .image img/skyrace.jpg 520 _ 
 .caption Photo: [[facebook.com/tromsoskyrace]]
+
+* 
+.image img/mixt-screenshot.png 520 _ 
+
+: collect more and more data, interactive tools to explore the large datasets
+: combine statistical analyses, prior knowledge, interactive visualizations, intuitive unterfaces
+: microservice architecture: apps are composed of smaller components communicating with language-agnostic protocols
+: applied it to mixt for exploring transcriptional profiles in blood and tumor 
 
 * Overview
 - Background
